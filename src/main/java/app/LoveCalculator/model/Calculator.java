@@ -13,7 +13,7 @@ public class Calculator {
     
     private String fname;
     private String sname;
-    private String percentage;
+    private Integer percentage;
     private String result;
     private String formId;
 
@@ -23,8 +23,8 @@ public class Calculator {
     public String getSname() {return sname;}
     public void setSname(String sname) {this.sname = sname;}
     
-    public String getPercentage() {return percentage;}
-    public void setPercentage(String percentage) {this.percentage = percentage;}
+    public Integer getPercentage() {return percentage;}
+    public void setPercentage(Integer percentage) {this.percentage = percentage;}
     
     public String getResult() {return result;}
     public void setResult(String result) {this.result = result;}
@@ -47,7 +47,7 @@ public class Calculator {
         
         c.setFname(person1name);
         c.setSname(person2name);
-        c.setPercentage(o.getString("percentage"));
+        c.setPercentage(Integer.parseInt(o.getString("percentage")));
         c.setResult(o.getString("result"));
         }
         System.out.println(c);
