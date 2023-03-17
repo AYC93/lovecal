@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="Container">
+        <form method="GET" action="/getpercentage" th:object="${Calculator}">
+            Person 1:
+            <input type="text" th:field="*{fname}" placeholder="Enter the 1st name here" required/>
+            <br>
+            Person 2:
+            <input type="text" th:field="*{sname}" placeholder="Enter the 2nd name here" required/>
+            <br>
+            <button type="submit">Calculate!</button>
+        </form>
+    </div>
+</body>
+</html>
