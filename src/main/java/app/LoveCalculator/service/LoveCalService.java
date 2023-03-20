@@ -1,7 +1,6 @@
 package app.LoveCalculator.service;
 
 import java.io.IOException;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
 
 import app.LoveCalculator.model.Calculator;
 
@@ -26,8 +26,9 @@ public class LoveCalService {
     @Value("${apiprac.love.calculator.host}")
     private String loveCalculatorHost;
     
+  
 
-    public Optional<Calculator> getResult(String fname, String sname)throws IOException{
+    public Calculator getResult(String fname, String sname)throws IOException{
         String loveCalUrl = UriComponentsBuilder
                             .fromUriString(loveCalulatorUrl)
                             .path("getPercentage")
@@ -48,19 +49,17 @@ public class LoveCalService {
 
         System.out.println(r.getBody());
         Calculator c = Calculator.create(r.getBody());
-        
         if(c != null)
-            return Optional.of(c);
-
-        createCalForm();
-        return Optional.empty();                       
+            return c;
+        return null;                       
     }
 
-    public Calculator createCalForm(){
+    public String createCalForm(){
         // not secure but requested by assignment
         String formId = UUID.randomUUID().toString().substring(0, 8);
-        Calculator c = new Calculator();
-        c.setFormId(formId);
-        return c;
+        //Calculator c = new Calculator();
+        System.out.println("ID Created: " + formId);
+        //c.setFormId(formId);
+        return formId;
     }
 }

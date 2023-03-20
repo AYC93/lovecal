@@ -29,7 +29,9 @@ public class Calculator {
     public String getResult() {return result;}
     public void setResult(String result) {this.result = result;}
 
-    public String getFormId() {return formId;}
+    public String getFormId() {
+        
+        return formId;}
     public void setFormId(String formId) {this.formId = formId;}
     
     public static Calculator create(String json) throws IOException{
@@ -53,5 +55,15 @@ public class Calculator {
         System.out.println(c);
         return c;
     }
+
+    public JsonObject toJSON(){
+        return Json.createObjectBuilder()
+                .add("formId", this.getFormId())
+                .add("fname", this.getFname())
+                .add("sname", this.getSname())
+                .add("percentage", this.getPercentage())
+                .add("result", this.getResult())
+                .build();
+            }
   
 }

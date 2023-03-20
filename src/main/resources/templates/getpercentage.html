@@ -8,14 +8,18 @@
 </head>
 <body th:object="${getpercentage}">
     <div class="container">
+        ID:
+        <p th:text="*{formId}"></p>
         First Name:
         <p th:text="*{fname}"></p>
         <br>
         Second Name:
         <p th:text="*{sname}"></p>
         <br>
-        Result:
+        Percentage:
         <p th:text="*{percentage}"></p>
+        Result:
+        <p th:text="*{result}"></p>
         <a th:href="@{/}">Return</a>
         <br>
     </div>
